@@ -3,6 +3,23 @@ import test from 'ava';
 
 import Stat from '../src/stat.js';
 
+test('stat.constructor', t => {
+  t.throws(
+    () => new Stat(0, -1, 0)
+  );
+
+  t.throws(
+    () => new Stat(1,0,0)
+  );
+
+  let s = new Stat(0, 10, 9999);
+  t.is(s.current, 10);
+
+  s = new Stat(0, 10, 5.5, true);
+  t.is(s.current, 5);
+
+});
+
 test('stat.changeFns Limiters', t => {
   let s = new Stat(0, 100, 0);
   s.addCurrent(999);
@@ -78,3 +95,34 @@ test('stat.changeFns Int (Should always truncate)', t => {
   t.is(s.min, -5);
 
 });
+
+
+test('stat.modifiers and total', t => {
+  let s = new Stat(0, 10, 0, true);
+  let sm = () => 1;
+  let fid = s.addFlatModifier(sm);
+  t.is(s.flatModifiers[0].fn, sm);
+  let pid = s.addPercentModifier(sm);
+  t.is(s.percentModifiers[0].fn, sm);
+
+  s.removeFlatModifier(fid);
+  t.is(s.flatModifiers.length, 0);
+  s.removePercentModifier(pid);
+  t.is(s.percentModifiers.length, 0);
+
+  s = new Stat(0, 1000, 50, true);
+  t.is(s.total(), 50);
+
+  fid = s.addFlatModifier(() => 10);
+  t.is(s.total(), 60);
+  let fid2 = s.addFlatModifier(() => 40);
+  t.is(s.total(), 100);
+
+  pid = s.addPercentModifier(() => 100);
+  t.is(s.total(), 200, 'Percents should be calculated after flat values');
+
+});
+
+
+
+
