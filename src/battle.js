@@ -1,71 +1,45 @@
 'use strict';
 
+const actionTemplate = {
+  execute : f => f,
+  finished : false,
+  update : f => f
+};
+
 class Battle{
   constructor(player, target){
     this.player = player;
     this.target = target;
     this.started = false;
-    this.paused = false;
-    this.roundPoints = 0;
-    this.rpTick = 100;
-  }
-  
-  start(){
-    this.started = true;
-  }
-
-  pause(){
-    this.paused = true;
+    this.actionQueue = [];
+    this.currentAction = null;
   }
 
   onUpdate(_g){
-    if(this.started || this.paused) return;
-    this.roundPoints += this.rpTick * _g.updateTime;
-    if(this.roundPoints >= 300){
-      this.handleRound();
-    }
-  }
-
-  handleActions(user, recv){
-    if(user.actions){
-      for(let i = 0; i < user.actions.length; i++){
-        user.actions[0](recv, this);
-        if(user.isDead){
-          if(recv.isDead){
-            return 11;
-          }
-          return 10;
+    if(this.started === false) return;
+    if(this.currentAction){
+      if(currentAction.finished){
+        if(this.player.isDead && this.target.isDead) {
+          return this.end(true,true);
         }
-        if(recv.isDead){
-          return 01;
+        if(this.target.isDead){
+          return this.end(true);
+        }
+        if(this.player.isDead){
+          return this.end(false, true);
         }
       }
+      currentAction.update(this, _g);
     }
-    return 0;
+    this.currentAction = this.actionQueue.shift();
+    this.currentAction.execute(this, _g);
   }
 
-  end(playerDead, targetDead){
-  
-  }
-
-  handleRound(){
-    const pSpd = this.player.coreStats.spd.stat.total();
-    const tSpd = this.target.coreStats.spd.stat.total();
-    if(pSpd >= tSpd){
-      let res = handleActions(this.player, this.target);
-      if(res !== 0){
-        if(res === 11) return this.end(true, true);
-        if(res === 10) return this.end(true, false);
-        if(res === 01) return this.end(false, true);
-      }
-      res = handleActions(this.target, this.player);
-      if(res !== 0){
-        if(res === 11) return this.end(true, true);
-        if(res === 10) return this.end(true, false);
-        if(res === 01) return this.end(false, true);
-      }
-    }else{
+  addAction(a){
     
-    }
+  }
+
+  end(targetDead, playerDead){
+
   }
 }
