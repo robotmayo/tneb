@@ -1,11 +1,5 @@
 'use strict';
 
-const actionTemplate = {
-  execute : f => f,
-  finished : false,
-  update : f => f
-};
-
 class Battle{
   constructor(player, target){
     this.player = player;
@@ -15,10 +9,16 @@ class Battle{
     this.currentAction = null;
   }
 
-  onUpdate(_g){
+  start(){
+    this.started = true;
+  }
+
+  update(_g){
     if(this.started === false) return;
     if(this.currentAction){
-      if(currentAction.finished){
+      if(this.currentAction.finished){
+        console.log('the current action is finished');
+        process.exit(0);
         if(this.player.isDead && this.target.isDead) {
           return this.end(true,true);
         }
@@ -29,17 +29,24 @@ class Battle{
           return this.end(false, true);
         }
       }
-      currentAction.update(this, _g);
+      return this.currentAction.update(this, _g);
     }
     this.currentAction = this.actionQueue.shift();
-    this.currentAction.execute(this, _g);
+    if(this.currentAction) this.currentAction.execute(this, _g);
   }
 
   addAction(a){
-    
+    this.actionQueue.push(a);
+  }
+
+  sortActionQueue(){
+    this.actionQueue.sort((a,b) => {
+      return a.totalSpeed() > b.totalSpeed();
+    });
   }
 
   end(targetDead, playerDead){
 
   }
 }
+module.exports = Battle;

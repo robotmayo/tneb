@@ -13,6 +13,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "babelify": "^7.3.0",
+    "mini-signals": "^1.1.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
@@ -23,7 +24,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch" : "watchify src/app.jsx -o build/js/app.js -t [ babelify --presets [ es2015 react ] --plugins [ transform-object-assign ] ] -v -d"
+    "watch": "watchify src/app.jsx -o build/js/app.js -t [ babelify --presets [ es2015 react ] --plugins [ transform-object-assign ] ] -v -d"
   },
   "author": "robotmayo",
   "license": "GPL-3.0"
