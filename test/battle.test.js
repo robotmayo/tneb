@@ -37,22 +37,24 @@ class Game{
 const TestAction = Object.assign({
   finished : false,
   execute : function(battle, game){
-    console.log('executing');
   },
   update : function(battle, game){
-    console.log('updated');
-    console.log('IM DONE');
+
     this.finished = true;
   }
 });
 
 function delay(ms){
-  return new Promise(function(resolve, reject){
-    setTimeout(resolve, ms);
+  return new Promise(function(resolve){
+    setTimeout(() => {
+      console.log('FUCK THIS SHIT')
+      resolve();
+    }, ms);
   });
 }
 
-test('Battle Testing', t => {
+test.skip('Battle Testing', async t => {
+  t.plan(1);
   let g = new Game();
   let player = new Actor();
   let target = new Actor();
@@ -61,5 +63,7 @@ test('Battle Testing', t => {
   g.addItem(b);
   g.start();
   b.start();
-  return delay(5000).then(() => t.pass());
+  console.log('BEFORE');
+  await delay(1000);
+  console.log('AFTER');
 });

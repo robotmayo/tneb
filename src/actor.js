@@ -2,6 +2,7 @@
 const Stat = require('./stat');
 const MiniSignal = require('mini-signals');
 const createStats = require('./utils/create-stats');
+const DAMAGE_TYPES = require('./data/damage-types.json');
 
 
 class Actor{
@@ -19,16 +20,16 @@ class Actor{
 
   takeDamage(value, type){
     switch(type){
-      case 'hp':  return this._takeHPDamage(value);
-      case 'physical': return this._takePhysicalDamage(value);
-      case 'magic': return this._takeMagicDamage(value);
+      case DAMAGE_TYPES.HP:  return this._takeHPDamage(value);
+      case DAMAGE_TYPES.PHYSICAL: return this._takePhysicalDamage(value);
+      case DAMAGE_TYPES.MAGICAL: return this._takeMagicDamage(value);
       default:
         throw new Error('invalid damage type');
     }
   }
 
   _takeHPDamage(value){
-    this.coreStats.hp.stat.subCurrent(value);
+    this.stats.coreStats.hp.stat.subCurrent(value);
     return value;
   }
 

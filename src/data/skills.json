@@ -3,9 +3,10 @@
     "name" : "Basic Attack",
     "action" : "basicPhyiscal",
     "cost" : [],
-    "baseDamage" : {
+    "damage" : {
       "base" : 5,
-      "multiplier" : 1
+      "multiplier" : 1,
+      "ratio" : 1
     },
     "cooldown" : 0
   },

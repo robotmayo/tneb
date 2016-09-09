@@ -1,0 +1,10 @@
+{
+  "PHYSICAL" : "PHYSICAL",
+  "MAGICAL" : "MAGICAL",
+  "HP" : "HP",
+  "FIRE" : "FIRE",
+  "ELECTRIC" : "ELECTRIC",
+  "ICE" : "ICE",
+  "LIGHT" : "LIGHT",
+  "DARK" : "DARK"
+}

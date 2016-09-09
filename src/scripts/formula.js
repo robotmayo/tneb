@@ -1,4 +1,5 @@
 'use strict';
+const DAMAGE_TYPES = require('../data/damage-types.json');
 
 /**
  * @typedef {Object} DamDescType
@@ -10,30 +11,17 @@
  * Damage Description for use in formulas. Multiple types can be done at once
  * @typedef {Object} DamDesc
  * @property {Object[]} types
- * @property {string} types.type
+ * @property {string} types.type A damage type as defined in damage-types
  * @property {number} types.ratio
  * @property {Object} target
  * @property {Object} source
  * @property {number} raw
  */
 const DAMAGE_DESC = {
-  types : [
-    {
-      type : 'physical',
-      ratio : 0.6
-    },
-    {
-      type : 'fire',
-      ratio : 0.2
-    },
-    {
-      type : 'poison',
-      ratio : 0.2
-    }
-  ],
+  types : [],
   target : {}, //Actor
   source : {}, //Actor
-  raw : 900
+  raw : 0
 };
 module.exports.DamageDesc = function(o){
   return Object.assign({}, DAMAGE_DESC, o)
@@ -46,14 +34,14 @@ function wrapForCalc(type, value){
 /**
  *
  * @param DamDesc damageDesc
- * @returns {DamDesc[]}
+ * @returns {DamageData[]}
  */
 function calculateDamage(damageDesc){
   return damageDesc.types.map(t => {
     switch (type) {
-      case 'physical':
+      case DAMAGE_TYPES.PHYSICAL:
         return wrapForCalc(t, calcPhysical(raw, damageDesc));
-      case 'magic':
+      case DAMAGE_TYPES.MAGICAL:
         return wrapForCalc(t, calcMagic(raw, damageDesc));
       default:
         return wrapForCalc(t, 0);

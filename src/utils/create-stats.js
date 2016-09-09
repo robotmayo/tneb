@@ -1,3 +1,5 @@
+const Stat = require('../stat');
+
 /**
  * @typedef {Object} statJSON
  * @property {string} fullName
@@ -25,11 +27,11 @@ function createStats(stats){
   return Object.keys(stats).reduce((o, k) => {
     const s = stats[k];
     o[k] = {
-      fullname : s.fullName,
+      fullName : s.fullName,
       abv : s.abv,
       stat : new Stat(s.min, s.max, s.current, s.isInt)
     };
     return o;
-  });
+  }, {});
 }
 module.exports = createStats;

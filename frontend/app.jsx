@@ -1,3 +1,4 @@
+'use strict';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
@@ -16,7 +17,7 @@ class App extends React.Component{
         <h1>Dank</h1>
       </Provider>
     );
-  
+
   }
 }
 
