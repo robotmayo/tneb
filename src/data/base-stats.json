@@ -1,0 +1,153 @@
+{
+  "core" : {
+    "hp" : {
+      "fullname" : "Hit Points",
+      "abv" : "HP",
+      "min" : 0,
+      "max" : 20,
+      "current" : 20,
+      "isInt" : true
+    },
+    "str" : {
+      "fullname" : "Strength",
+      "abv" : "STR",
+      "min" : 0,
+      "max" : 5,
+      "current" : 1,
+      "isInt" : true
+    },
+    "mag" : {
+      "fullname" : "Magic",
+      "abv" : "MAG",
+      "min" : 0,
+      "max" : 5,
+      "current" : 0,
+      "isInt" : true
+    },
+    "def" : {
+      "fullname" : "HDefense",
+      "abv" : "DEF",
+      "min" : 0,
+      "max" : 9999,
+      "current" : 2,
+      "isInt" : true
+    },
+    "ap" : {
+      "fullname" : "Action Point",
+      "abv" : "AP",
+      "min" : 0,
+      "max" : 3,
+      "current" : 0,
+      "isInt" : true
+    },
+    "spd" : {
+      "fullname" : "Speed",
+      "abv" : "SPD",
+      "min" : 0,
+      "max" : 5,
+      "current" : 2,
+      "isInt" : true
+    }
+  },
+  "elementalStats" : {
+    "firePower" : {
+      "fullname" : "Fire Power",
+      "abv" : "FP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "fireRes" : {
+      "fullname" : "Fire Resistance",
+      "abv" : "FIR RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "electricPower" : {
+      "fullname" : "Electric Power",
+      "abv" : "LP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "electricRes" : {
+      "fullname" : "Electric Resistance",
+      "abv" : "ELE RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "icePower" : {
+      "fullname" : "Ice Power",
+      "abv" : "IP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "iceRes" : {
+      "fullname" : "Ice Resistance",
+      "abv" : "ICE RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "lightPower" : {
+      "fullname" : "Light Power",
+      "abv" : "LP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "lightRes" : {
+      "fullname" : "Light Resistance",
+      "abv" : "LIG RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "darkPower" : {
+      "fullname" : "Dark Power",
+      "abv" : "DP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+    "darkRes" : {
+      "fullname" : "Dark Resistance",
+      "abv" : "DRK RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    }
+  },
+  "specialStats" : {
+    "poisonPower" : {
+      "fullname" : "Poison Power",
+      "abv" : "PP",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    },
+
+    "poisonRes" : {
+      "fullname" : "Poison Resistance",
+      "abv" : "PSN RES",
+      "min" : 0,
+      "max" : 0,
+      "current" : 0,
+      "isInt" : true
+    }
+  }
+}

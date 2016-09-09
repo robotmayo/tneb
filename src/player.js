@@ -5,6 +5,6 @@ class Player extends Actor{
   constructor(){
     super();
   }
-};
+}
 
 module.exports = Player;

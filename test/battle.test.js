@@ -44,7 +44,7 @@ const TestAction = Object.assign({
     console.log('IM DONE');
     this.finished = true;
   }
-})
+});
 
 function delay(ms){
   return new Promise(function(resolve, reject){

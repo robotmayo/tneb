@@ -1,17 +1,18 @@
 'use strict';
 
-const Action = {
+const ACTION = {
   finished : false,
   update : function(battle, game){
-
+    this.finished = true;
   },
   execute : function(battle, game){
-
   },
   totalSpeed : function(){
     return 0;
   },
   source : null
-}
+};
 
-module.exports = Action;
+module.exports = function(o){
+  return Object.assign({}, ACTION, o);
+};

@@ -1,7 +1,15 @@
 'use strict';
 let _ID = 0;
 
+/** Class for a stat but really can be used for anything where fine control and restrictions are needed */
 class Stat{
+  /**
+   * Create a new Stat
+   * @param {number} min
+   * @param {number} max
+   * @param {number} current
+   * @param {boolean=false} isInt
+   */
   constructor(min , max , current , isInt ){
     if(typeof min != 'number') throw new Error('min must be a number');
     if(typeof max != 'number') throw new Error('max must be a number');
@@ -18,6 +26,10 @@ class Stat{
     this.percentModifiers = [];
   }
 
+  /**
+   * The total after applying all the modifiers
+   * @returns {number}
+   */
   total(){
     const flatM = this.flatModifiers.reduce((p, fm) => fm.fn(this) + p, 0);
     const flatP = this.percentModifiers.reduce((p, pm) => pm.fn(this) + p, 0);
@@ -25,13 +37,23 @@ class Stat{
     return this.isInt ? parseInt(t, 10) : t;
   }
 
+  /**
+   *
+   * @param {Stat~modifierCallback} fn
+   * @returns {number} id Used for removal
+   */
   addFlatModifier(fn){
     const id = _ID++;
     const f = {fn, id};
     this.flatModifiers.push(f);
     return id;
   }
-  
+
+  /**
+   *
+   * @param {Stat~modifierCallback} fn
+   * @returns {number} id Used for removal
+   */
   addPercentModifier(fn){
     const id = _ID++;
     const f = {fn, id};
@@ -39,6 +61,10 @@ class Stat{
     return id;
   }
 
+  /**
+   *
+   * @param {number} id Id of the modifier
+   */
   removeFlatModifier(id){
     this.flatModifiers = this.flatModifiers.reduce((arr, f) => {
       if(f.id === id) return arr;
@@ -47,6 +73,10 @@ class Stat{
     }, []);
   }
 
+  /**
+   *
+   * @param {number} id Id of the modifier
+   */
   removePercentModifier(id){
     this.percentModifiers = this.percentModifiers.reduce((arr, f) => {
       if(f.id === id) return arr;
@@ -55,6 +85,11 @@ class Stat{
     }, []);
   }
 
+  /**
+   * Add to the current value keeping within limits
+   * @param {number} value
+   * @return {number} current The new current value
+   */
   addCurrent(value){
     let newVal = this.current + value;
     if(newVal > this.max){
@@ -67,6 +102,11 @@ class Stat{
     return newVal;
   }
 
+  /**
+   * Subtract from the current value keeping within limits
+   * @param {number} value
+   * @return {number} current The new current value
+   */
   subCurrent(value){
     let newVal = this.current - value;
     if(newVal < this.min){
@@ -79,6 +119,11 @@ class Stat{
     return newVal;
   }
 
+  /**
+   * Increase the max value
+   * @param {number} value
+   * @return {number} max The new max value
+   */
   addMax(value){
     let newVal = this.max + value;
     newVal = this.isInt ? parseInt(newVal, 10) : newVal;
@@ -86,6 +131,11 @@ class Stat{
     return newVal;
   }
 
+  /**
+   * Reduce the max value, not going past the minimum value
+   * @param {number} value
+   * @return {number} max The new max value
+   */
   subMax(value){
     let newVal = this.max - value;
     if(newVal < this.min){
@@ -98,6 +148,11 @@ class Stat{
     return newVal;
   }
 
+  /**
+   * Increase the min value, not going past the maximum value
+   * @param {number} value
+   * @return {number} min The new min value
+   */
   addMin(value){
     let newVal = this.min + value;
     if(newVal > this.max){
@@ -110,6 +165,11 @@ class Stat{
     return newVal;
   }
 
+  /**
+   * Reduce the max value
+   * @param {number} value
+   * @return {number} max The new max value
+   */
   subMin(value){
     let newVal = this.min - value;
     newVal = this.isInt ? parseInt(newVal, 10) : newVal;
@@ -119,3 +179,10 @@ class Stat{
 }
 
 module.exports = Stat;
+
+/**
+ Modifier Callback
+ @callback Stat~modifierCallback
+ @param {Stat}
+ @return {number}
+ */

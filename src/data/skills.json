@@ -1,0 +1,21 @@
+{
+  "basicAttack" : {
+    "name" : "Basic Attack",
+    "action" : "basicPhyiscal",
+    "cost" : [],
+    "baseDamage" : {
+      "base" : 5,
+      "multiplier" : 1
+    },
+    "cooldown" : 0
+  },
+  "strongAttack" : {
+    "name" : "Strong Attack",
+    "action" : "basicPhysical",
+    "cost" : [],
+    "damage" : {
+      "base" : 2,
+      "multiplier" : 1.25
+    }
+  }
+}
