@@ -1,0 +1,33 @@
+'use strict';
+import test from 'ava';
+import SkillData from '../src/data/skills.json';
+import SkillScripts from '../src/scripts/skills';
+import Formula from '../src/scripts/formula';
+import Player from '../src/player';
+
+
+test('skills.basicPhysical', t => {
+  const skill = SkillScripts.basicPhysical;
+  const P = new Player();
+  const target = new Player();
+  const fakeSD = {damage : {multiplier : 1, base : 5}};
+  const startingHP = target.stats.coreStats.hp.stat.current;
+  const baseStr = P.stats.coreStats.str.stat.current;
+  const raw = fakeSD.damage.base * (baseStr * fakeSD.damage.multiplier);
+  fakeSD.raw = raw;
+  fakeSD.types = [{
+    "type" : "PHYSICAL",
+    "ratio" : 1
+  }];
+  const fakeDD = {
+    types : fakeSD.types,
+    raw : fakeSD.raw,
+    source : P,
+    target : target
+  };
+  const expectedDamage = Formula.calculateDamage(fakeDD);
+  const action = skill(null,  P, target, fakeSD);
+  action.execute();
+  console.log(startingHP, target.stats.coreStats.hp.stat.current);
+  t.not(startingHP, target.stats.coreStats.hp.stat.total());
+});

@@ -2,6 +2,10 @@
   "basicAttack" : {
     "name" : "Basic Attack",
     "action" : "basicPhyiscal",
+    "types" : [{
+      "type" : "PHYSICAL",
+      "ratio" : 1
+    }],
     "cost" : [],
     "damage" : {
       "base" : 5,

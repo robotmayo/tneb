@@ -8,7 +8,6 @@ import createStats from '../src/utils/create-stats';
 
 test('taking damage', t => {
   let p = new Player();
-  let d = p.takeDamage(10, DAMAGE_TYPES.HP);
-  t.is(d, 10);
+  let d = p.applyDamage({value :10, type : DAMAGE_TYPES.HP});
   t.is(p.stats.coreStats.hp.stat.current, 10);
 });

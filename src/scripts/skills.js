@@ -5,16 +5,17 @@ const Formula = require('./formula');
 //TODO: Handle cooldowns
 
 const skillsScripts = {
-  basicPhysical: function (game, user, target, skillData) {
+  basicPhysical: function (game, source, target, skillData) {
     return Action({
       execute : function(battle, game){
         const DD = {
           types : skillData.types,
-          raw : skillData.damage.base * (user.stats.coreStats.str * skillData.damage.multiplier),
-          source : 'basicPhysical'
+          raw : skillData.damage.base * (source.stats.coreStats.str.stat.total() * skillData.damage.multiplier),
+          source,
+          target
         };
         const damage = Formula.calculateDamage(DD);
-        target.applyDamage(damage);
+        target.applyDamage(damage[0]);
       }
     });
   }
