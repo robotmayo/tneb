@@ -12,7 +12,8 @@
       "multiplier" : 1,
       "ratio" : 1
     },
-    "cooldown" : 0
+    "cooldown" : 0,
+    "desc" : "Deals physical damage based on user strength"
   },
   "strongAttack" : {
     "name" : "Strong Attack",

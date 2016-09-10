@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import Home from './home.jsx';
 import Status from './pages/status.jsx';
 import Nav from './nav.jsx';
+import Dungeon from './pages/dungeon/dungeon.jsx';
 
 class Root extends React.Component{
   constructor(){
@@ -31,10 +32,11 @@ class Root extends React.Component{
 }
 
 render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={Root}>
       <IndexRoute component={Home} />
       <Route path="status" component={Status}/>
+      <Route path="dungeon" component={Dungeon}/>
     </Route>
   </Router>
 ), document.getElementById('root'));

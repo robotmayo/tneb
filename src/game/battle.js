@@ -1,15 +1,15 @@
 'use strict';
 
 class Battle{
-  constructor(player, target){
-    this.player = player;
-    this.target = target;
+  constructor(){
     this.started = false;
     this.actionQueue = [];
     this.currentAction = null;
   }
 
-  start(){
+  start(player, target){
+    this.player = player;
+    this.target = target;
     this.started = true;
   }
 

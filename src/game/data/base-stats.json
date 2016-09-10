@@ -37,7 +37,7 @@
       "abv" : "AP",
       "min" : 0,
       "max" : 3,
-      "current" : 0,
+      "current" : 3,
       "isInt" : true
     },
     "spd" : {
