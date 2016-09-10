@@ -1,7 +1,7 @@
 'use strict';
 import test from 'ava';
-import Formula from '../src/scripts/formula';
-import DAMAGE_TYPES from '../src/data/damage-types.json';
+import Formula from '../src/game/scripts/formula';
+import DAMAGE_TYPES from '../src/game/data/damage-types.json';
 
 const target = {
   stats : {

@@ -2,7 +2,7 @@
 const MiniSignal = require('mini-signals');
 
 class Actor{
-  constructor(coreStats, elementalStats, specialStats){
+  constructor(coreStats, elementalStats, specialStats, data){
     this.signals = {
       beforeApplyDamage : new MiniSignal(),
       afterApplyDamage : new MiniSignal()
@@ -12,6 +12,7 @@ class Actor{
       elementalStats,
       specialStats
     };
+    this.name = data.name;
   }
 
   applyDamage(damageData){

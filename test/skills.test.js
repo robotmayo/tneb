@@ -1,9 +1,9 @@
 'use strict';
 import test from 'ava';
-import SkillData from '../src/data/skills.json';
-import SkillScripts from '../src/scripts/skills';
-import Formula from '../src/scripts/formula';
-import Player from '../src/player';
+import SkillData from '../src/game/data/skills.json';
+import SkillScripts from '../src/game/scripts/skills';
+import Formula from '../src/game/scripts/formula';
+import Player from '../src/game/player';
 
 
 test('skills.basicPhysical', t => {

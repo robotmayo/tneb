@@ -1,6 +1,6 @@
 'use strict';
 import test from 'ava';
-import createStats from '../src/utils/create-stats';
+import createStats from '../src/game/utils/create-stats';
 
 test('createStats', t => {
   t.plan(4);

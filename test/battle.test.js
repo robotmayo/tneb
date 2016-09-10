@@ -1,9 +1,9 @@
 'use strict';
 import test from 'ava';
 
-import Actor from '../src/actor';
-import Battle from '../src/battle';
-import Action from '../src/action';
+import Actor from '../src/game/actor';
+import Battle from '../src/game/battle';
+import Action from '../src/game/action';
 
 class Game{
 
