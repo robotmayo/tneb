@@ -47,7 +47,6 @@ const TestAction = Object.assign({
 function delay(ms){
   return new Promise(function(resolve){
     setTimeout(() => {
-      console.log('FUCK THIS SHIT')
       resolve();
     }, ms);
   });
@@ -63,7 +62,5 @@ test.skip('Battle Testing', async t => {
   g.addItem(b);
   g.start();
   b.start();
-  console.log('BEFORE');
   await delay(1000);
-  console.log('AFTER');
 });

@@ -10,6 +10,7 @@ const Skills = {
 
 class Player extends Actor{
   constructor(data) {
+    data = data || {};
     super(
       Object.assign({}, data, {
         coreStats: data.coreStats || createStats(BASE_STATS.core),

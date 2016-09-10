@@ -1,7 +1,7 @@
 'use strict';
 import test from 'ava';
 
-import Stat from '../src/stat.js';
+import Stat from '../src/game/stat.js';
 
 test('stat.constructor', t => {
   t.throws(

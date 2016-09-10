@@ -1,5 +1,5 @@
 'use strict';
-const DAMAGE_TYPES = require('./damage-types.json');
+const DAMAGE_TYPES = require('../data/damage-types.json');
 
 /**
  * @typedef {Object} DamageData

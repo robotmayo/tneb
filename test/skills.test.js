@@ -28,6 +28,5 @@ test('skills.basicPhysical', t => {
   const expectedDamage = Formula.calculateDamage(fakeDD);
   const action = skill(null,  P, target, fakeSD);
   action.execute();
-  console.log(startingHP, target.stats.coreStats.hp.stat.current);
   t.not(startingHP, target.stats.coreStats.hp.stat.total());
 });
