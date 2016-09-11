@@ -1,0 +1,115 @@
+{
+  "testSlime" : {
+    "name" :  "Test Slime",
+    "rank" : {
+      "min" : 1,
+      "max" : 3
+    },
+    "skills" : {
+      "basicAttack" : {
+        "damage" : {
+          "base" : 3
+        }
+      }
+    },
+    "stats" : {
+      "core" : {
+        "hp" : {
+          "value" : 50,
+          "perRank" : 3,
+          "rankMultiplier" : 1
+        },
+        "str" : {
+          "value" : 3,
+          "perRank" : 1,
+          "rankMultiplier" : 1
+        },
+        "mag" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "def" : {
+          "value" : 4,
+          "perRank" : 1,
+          "rankMultiplier" : 1
+        },
+        "ap" : {
+          "value" : 3,
+          "perRank" : 0,
+          "rankMultiplier" : 0.5
+        },
+        "spd" : {
+          "value" : 4,
+          "perRank" : 1,
+          "rankMultiplier" : 1
+        }
+      },
+      "elemental" : {
+        "firePower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "fireRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "electricPower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "electricRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "icePower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "iceRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "lightPower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "lightRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "darkPower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+        "darkRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        }
+      },
+      "special" : {
+        "poisonPower" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        },
+
+        "poisonRes" : {
+          "value" : 0,
+          "perRank" : 0,
+          "rankMultiplier" : 1
+        }
+      }
+    }
+  }
+}

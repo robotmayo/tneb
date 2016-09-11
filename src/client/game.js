@@ -8,6 +8,7 @@ const playerData = {
 };
 const player = new Player(playerData);
 player.skills.available.push(SkillData.basicAttack);
+player.skills.equipped.push(SkillData.basicAttack);
 
 Game.player = player;
 

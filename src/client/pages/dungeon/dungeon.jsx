@@ -1,7 +1,7 @@
 import React from 'react';
 import Game from '../../game';
-import BattleCard from './battle-card.jsx';
 import Player from '../../../game/player';
+import Battle from './battle.jsx';
 
 
 export default class Dungeon extends React.Component{
@@ -12,7 +12,6 @@ export default class Dungeon extends React.Component{
 
 
   startDungeon(){
-    console.log('starting THIS DICK');
     Game.battle.start(Game.player, new Player({name : 'Bad Guy'}) );
     this.setState(Game.battle);
   }
@@ -20,9 +19,7 @@ export default class Dungeon extends React.Component{
   render(){
     if(this.state.started){
       return (
-        <div>
-          <BattleCard actor={this.state.player}/>
-        </div>
+        <Battle battle={this.state} useSkill={f => f}/>
       );
     }
     return (
