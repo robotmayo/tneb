@@ -1,7 +1,9 @@
 import React from 'react';
+
 import Game from '../../game';
 import Player from '../../../game/player';
 import Battle from './battle.jsx';
+import EnemyFactory from '../../../game/enemy-factory';
 
 
 export default class Dungeon extends React.Component{
@@ -12,14 +14,18 @@ export default class Dungeon extends React.Component{
 
 
   startDungeon(){
-    Game.battle.start(Game.player, new Player({name : 'Bad Guy'}) );
+    Game.battle.start(Game.player, EnemyFactory.create('testSlime') );
     this.setState(Game.battle);
+  }
+
+  useSkill(skillName){
+    this.state.player.useSkill(skillName, this.state.target);
   }
 
   render(){
     if(this.state.started){
       return (
-        <Battle battle={this.state} useSkill={f => f}/>
+        <Battle battle={this.state} useSkill={s => this.useSkill(s)}/>
       );
     }
     return (

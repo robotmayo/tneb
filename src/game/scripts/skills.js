@@ -5,7 +5,7 @@ const Formula = require('./formula');
 //TODO: Handle cooldowns
 
 const skillsScripts = {
-  basicPhysical: function (game, source, target, skillData) {
+  basicPhysical: function (skillData, source, target) {
     return Action({
       execute : function(battle, game){
         const DD = {

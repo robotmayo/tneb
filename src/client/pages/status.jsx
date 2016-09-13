@@ -14,7 +14,7 @@ export default class Home extends React.Component{
       <div className="row">
         <div className="col-lg-6">
           <h2>{this.state.player.name}</h2>
-          <Stat stat={this.state.player.stats.coreStats.hp} currentMax={true}/>
+          <Stat stat={this.state.player.stats.hp} currentMax={true}/>
           <Skill skill={this.state.player.skills.available[0]} />
         </div>
       </div>

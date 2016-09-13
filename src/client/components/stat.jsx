@@ -5,14 +5,14 @@ export default function Stat({stat, currentMax}){
     return (
       <div className="stat-display">
         <h3>{stat.fullName}({stat.abv})</h3>
-        <p>{stat.stat.total()} / {stat.stat.max}</p>
+        <p>{stat.total()} / {stat.max}</p>
       </div>
     );
   }
   return (
     <div className="stat-display">
       <h3>{stat.fullName}({stat.abv})</h3>
-      <p>{stat.stat.total()}</p>
+      <p>{stat.total()}</p>
     </div>
   );
 }

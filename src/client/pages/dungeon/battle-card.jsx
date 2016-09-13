@@ -7,8 +7,8 @@ export default function BattleCard({actor, children}) {
       <div className="card">
         <div className="card-block">
           <h5>{actor.name}</h5>
-          <Stat stat={actor.stats.coreStats.hp} currentMax={true}/>
-          <Stat stat={actor.stats.coreStats.ap} currentMax={true}/>
+          <Stat stat={actor.stats.hp} currentMax={true}/>
+          <Stat stat={actor.stats.ap} currentMax={true}/>
           {children}
         </div>
       </div>

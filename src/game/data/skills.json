@@ -1,5 +1,6 @@
 {
   "basicAttack" : {
+    "id" : "basicAttack",
     "name" : "Basic Attack",
     "action" : "basicPhyiscal",
     "types" : [{
