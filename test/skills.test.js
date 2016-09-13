@@ -11,10 +11,9 @@ test('skills.basicPhysical', t => {
   const P = new Player();
   const target = new Player();
   const fakeSD = {damage : {multiplier : 1, base : 5}};
-  const startingHP = target.stats.coreStats.hp.stat.current;
-  const baseStr = P.stats.coreStats.str.stat.current;
-  const raw = fakeSD.damage.base * (baseStr * fakeSD.damage.multiplier);
-  fakeSD.raw = raw;
+  const startingHP = target.stats.hp.current;
+  const baseStr = P.stats.str.current;
+  fakeSD.raw = fakeSD.damage.base * (baseStr * fakeSD.damage.multiplier);
   fakeSD.types = [{
     "type" : "PHYSICAL",
     "ratio" : 1
@@ -28,5 +27,5 @@ test('skills.basicPhysical', t => {
   const expectedDamage = Formula.calculateDamage(fakeDD);
   const action = skill(null,  P, target, fakeSD);
   action.execute();
-  t.not(startingHP, target.stats.coreStats.hp.stat.total());
+  t.not(startingHP, target.stats.hp.total());
 });

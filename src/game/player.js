@@ -13,9 +13,7 @@ class Player extends Actor{
     data = data || {};
     super(
       Object.assign({}, data, {
-        coreStats: data.coreStats || createStats(BASE_STATS.core),
-        elementalStats: data.elementalStats || createStats(BASE_STATS.elemental),
-        specialStats: data.specialStats || createStats(BASE_STATS.special),
+        stats: data.stats || createStats(BASE_STATS)
       })
     );
 

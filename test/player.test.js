@@ -9,5 +9,5 @@ import createStats from '../src/game/utils/create-stats';
 test('taking damage', t => {
   let p = new Player();
   let d = p.applyDamage({value :10, type : DAMAGE_TYPES.HP});
-  t.is(p.stats.coreStats.hp.stat.current, 10);
+  t.is(p.stats.hp.current, 10);
 });

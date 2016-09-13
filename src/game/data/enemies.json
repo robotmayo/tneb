@@ -5,13 +5,19 @@
       "min" : 1,
       "max" : 3
     },
-    "skills" : {
-      "basicAttack" : {
-        "damage" : {
-          "base" : 3
+    "skills" : [
+      {
+        "name" : "basicAttack",
+        "rank" : [1,0],
+        "data" : {
+          "damage" : {
+            "base" : 2.5,
+            "multiplier" : 1,
+            "ratio" : 1
+          }
         }
       }
-    },
+    ],
     "stats" : {
       "core" : {
         "hp" : {

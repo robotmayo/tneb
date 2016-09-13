@@ -64,7 +64,7 @@ module.exports.calculateDamage = calculateDamage;
  * @returns {number}
  */
 function magicDamage(damageDesc, damageDescType){
-  const rawArmor = damageDesc.target.stats.coreStats.res.stat.total() / 6.5;
+  const rawArmor = damageDesc.target.stats.res.total() / 6.5;
   const dr = 100 / (100 + (rawArmor / 4.5));
   const actualDamage = damageDesc.raw * damageDescType.ratio;
   return actualDamage * dr;
@@ -78,7 +78,7 @@ module.exports.magicDamage = magicDamage;
  * @returns {number}
  */
 function physicalDamage(damageDesc, damageDescType){
-  const rawArmor = damageDesc.target.stats.coreStats.def.stat.total() / 8;
+  const rawArmor = damageDesc.target.stats.def.total() / 8;
   const dr = 100 / (100 + (rawArmor / 6));
   const actualDamage = damageDesc.raw * damageDescType.ratio;
   return actualDamage * dr;
@@ -88,7 +88,7 @@ module.exports.physicalDamage = physicalDamage;
 
 function elementalDamage(damageDesc, damageDescType){
   throw new Error('NOT YET IMPLEMENTED');
-  const rawArmor = damageDesc.target.coreStats.res.stat.total() / 6.5;
+  const rawArmor = damageDesc.target.res.total() / 6.5;
   const dr = 100 / (100 + (rawArmor / 4.5));
   const actualDamage = damageDesc.raw * damageDescType.ratio;
   return actualDamage * dr;

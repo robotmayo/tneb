@@ -7,10 +7,12 @@
       "ratio" : 1
     }],
     "cost" : [],
-    "damage" : {
-      "base" : 5,
-      "multiplier" : 1,
-      "ratio" : 1
+    "data" : {
+      "damage" : {
+        "base" : 5,
+        "multiplier" : 1,
+        "ratio" : 1
+      }
     },
     "cooldown" : 0,
     "desc" : "Deals physical damage based on user strength"

@@ -10,7 +10,7 @@ const skillsScripts = {
       execute : function(battle, game){
         const DD = {
           types : skillData.types,
-          raw : skillData.damage.base * (source.stats.coreStats.str.stat.total() * skillData.damage.multiplier),
+          raw : skillData.damage.base * (source.stats.str.total() * skillData.damage.multiplier),
           source,
           target
         };

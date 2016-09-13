@@ -5,23 +5,30 @@ let _ID = 0;
 class Stat{
   /**
    * Create a new Stat
-   * @param {number} min
-   * @param {number} max
-   * @param {number} current
-   * @param {boolean=false} isInt
+   * @param {object} opts
+   * @param {number} opts.min
+   * @param {number} opts.max
+   * @param {number} opts.current
+   * @param {string} opts.abv
+   * @param {string} opts.fullName
+   * @param {boolean=false} opts.isInt
    */
-  constructor(min , max , current , isInt ){
-    if(typeof min != 'number') throw new Error('min must be a number');
-    if(typeof max != 'number') throw new Error('max must be a number');
-    if(typeof current != 'number') throw new Error('current must be a number');
+  constructor(opts){
+    if(!opts) throw new Error('Missing options');
+    if(typeof opts.min != 'number') throw new Error('min must be a number');
+    if(typeof opts.max != 'number') throw new Error('max must be a number');
+    if(typeof opts.current != 'number') throw new Error('current must be a number');
 
-    if(min > max) throw new Error('Min cant be greater than max');
-    if(current < min) current = min;
-    if(current > max) current = max;
-    this.min = isInt ? Math.floor(min) : min;
-    this.max = isInt ? Math.floor(max) : max;
-    this.isInt = isInt === true;
-    this.current = isInt ? parseInt(current, 10) : current;
+    this.abv = opts.abv;
+    this.fullName = opts.fullName;
+
+    if(opts.min > opts.max) throw new Error('Min cant be greater than max');
+    if(opts.current < opts.min) opts.current = opts.min;
+    if(opts.current > opts.max) opts.current = opts.max;
+    this.isInt = opts.isInt === true;
+    this.min = this.isInt ? Math.floor(opts.min) : opts.min;
+    this.max = this.isInt ? Math.floor(opts.max) : opts.max;
+    this.current = opts.isInt ? parseInt(opts.current, 10) : opts.current;
     this.flatModifiers = [];
     this.percentModifiers = [];
   }

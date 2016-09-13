@@ -26,11 +26,16 @@ const Stat = require('../stat');
 function createStats(stats){
   return Object.keys(stats).reduce((o, k) => {
     const s = stats[k];
-    o[k] = {
-      fullName : s.fullName,
-      abv : s.abv,
-      stat : new Stat(s.min, s.max, s.current, s.isInt)
-    };
+    o[k] =  new Stat(
+        {
+          min : s.min,
+          max : s.max,
+          current : s.current,
+          isInt : s.isInt,
+          fullName : s.fullName,
+          abv : s.abv
+        }
+    );
     return o;
   }, {});
 }

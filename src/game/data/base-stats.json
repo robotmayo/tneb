@@ -1,5 +1,4 @@
 {
-  "core" : {
     "hp" : {
       "fullName": "Hit Points",
       "abv" : "HP",
@@ -47,9 +46,7 @@
       "max" : 5,
       "current" : 2,
       "isInt" : true
-    }
-  },
-  "elemental" : {
+    },
     "firePower" : {
       "fullName": "Fire Power",
       "abv" : "FP",
@@ -129,9 +126,7 @@
       "max" : 0,
       "current" : 0,
       "isInt" : true
-    }
-  },
-  "special" : {
+    },
     "poisonPower" : {
       "fullName": "Poison Power",
       "abv" : "PP",
@@ -149,5 +144,4 @@
       "current" : 0,
       "isInt" : true
     }
-  }
 }

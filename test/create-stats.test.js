@@ -25,7 +25,7 @@ test('createStats', t => {
   };
   const statsObj = createStats(testStatJSON);
   t.is(statsObj.hp.fullName, 'Hit Points');
-  t.is(statsObj.hp.stat.current, 20);
+  t.is(statsObj.hp.current, 20);
   t.is(statsObj.str.fullName, 'Strength');
   t.is(statsObj.str.abv, 'STR');
 });

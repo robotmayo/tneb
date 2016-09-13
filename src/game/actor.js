@@ -7,16 +7,13 @@ class Actor{
       beforeApplyDamage : new MiniSignal(),
       afterApplyDamage : new MiniSignal()
     };
-    this.stats = {
-      coreStats : data.coreStats,
-      elementalStats : data.elementalStats,
-      specialStats : data.specialStats
-    };
+    this.stats = data.stats;
     this.name = data.name;
+    this.skills = data.skills;
   }
 
   applyDamage(damageData){
-    this.stats.coreStats.hp.stat.subCurrent(damageData.value);
+    this.stats.hp.subCurrent(damageData.value);
   }
 
   useSkill(skill){
