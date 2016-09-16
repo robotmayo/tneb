@@ -2,7 +2,7 @@
   "basicAttack" : {
     "id" : "basicAttack",
     "name" : "Basic Attack",
-    "action" : "basicPhyiscal",
+    "action" : "basicPhysical",
     "types" : [{
       "type" : "PHYSICAL",
       "ratio" : 1

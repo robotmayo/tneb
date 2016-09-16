@@ -23,9 +23,7 @@ class Actor{
     const skill = this.skills.available.filter(s => s.id === skillId)[0];
     if(!skill) throw new Error('Skill not found');
     const use = SkillScripts[skill.action];
-    console.log(SkillScripts[`${skill.action}`]);
     if(!use) throw new Error('Skill not found');
-    console.log(use);
     return use(skill.data, this, target);
   }
 

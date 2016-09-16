@@ -8,6 +8,7 @@ const skillsScripts = {
   basicPhysical: function (skillData, source, target) {
     return Action({
       execute : function(battle, game){
+        console.log('executred')
         const DD = {
           types : skillData.types,
           raw : skillData.damage.base * (source.stats.str.total() * skillData.damage.multiplier),

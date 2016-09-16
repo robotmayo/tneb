@@ -6,14 +6,14 @@ const game = {
   },
   updateList : [],
   start : function(){
-    last = Date.now();
+    this.timers.last = Date.now();
     this.update();
   },
   update : function(){
     const now = Date.now();
-    const delta = (now - last) / 1000; // We want delta in seconds
-    this.timers.delta = delta;
+     // We want delta in seconds
     this.timers.last = now;
+    this.timers.delta = (now - this.timers.last) / 1000;
     this.updateList.forEach(i => i.update(this));
     this.timers.id = setTimeout(() =>  this.update(), (1000 * 20) / 60); // Update at 20 frames per second
   }

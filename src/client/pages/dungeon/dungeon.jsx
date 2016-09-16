@@ -9,23 +9,24 @@ import EnemyFactory from '../../../game/enemy-factory';
 export default class Dungeon extends React.Component{
   constructor() {
     super();
-    this.state = Game.battle;
+    this.state = {battle : Game.battle};
   }
 
 
   startDungeon(){
     Game.battle.start(Game.player, EnemyFactory.create('testSlime') );
-    this.setState(Game.battle);
+    this.setState({battle : Game.battle});
   }
 
   useSkill(skillName){
-    this.state.player.useSkill(skillName, this.state.target);
+    const action = this.state.battle.player.useSkill(skillName, this.state.target);
+    this.state.battle.addAction(action);
   }
 
   render(){
-    if(this.state.started){
+    if(this.state.battle.started){
       return (
-        <Battle battle={this.state} useSkill={s => this.useSkill(s)}/>
+        <Battle battle={this.state.battle} useSkill={s => this.useSkill(s)}/>
       );
     }
     return (

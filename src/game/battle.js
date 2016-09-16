@@ -15,24 +15,39 @@ class Battle{
 
   update(_g){
     if(this.started === false) return;
-    if(this.currentAction){
-      if(this.currentAction.finished){
-        console.log('the current action is finished');
-        process.exit(0);
-        if(this.player.isDead && this.target.isDead) {
-          return this.end(true,true);
+    console.log('Updating!');
+    this.sortActionQueue();
+    const len = this.actionQueue.length;
+    for(let i = 0; i < len; i++){
+      const a = this.actionQueue[i];
+      // If its already finished it will get auto removed because its at the top of the queue
+      if(!a.finished){
+        if(a._ran) {
+          a.update(this, _g);
+        }else{
+          a.execute(this, _g);
+          a._ran = true;
         }
-        if(this.target.isDead){
-          return this.end(true);
-        }
-        if(this.player.isDead){
-          return this.end(false, true);
-        }
+        this.actionQueue.push(a);
+        const dead = endIfDead();
+        // Lets just stop processing if someone died
+        if(dead) return;
       }
-      return this.currentAction.update(this, _g);
     }
-    this.currentAction = this.actionQueue.shift();
-    if(this.currentAction) this.currentAction.execute(this, _g);
+    // Using len as the divider, cut off all the already run actions
+    this.actionQueue = this.actionQueue.slice(len);
+  }
+
+  endIfDead(){
+    if(this.player.isDead && this.target.isDead) {
+      return this.end(true,true);
+    }
+    if(this.target.isDead){
+      return this.end(true);
+    }
+    if(this.player.isDead){
+      return this.end(false, true);
+    }
   }
 
   addAction(a){

@@ -11,7 +11,7 @@ player.skills.available.push(SkillData.basicAttack);
 player.skills.equipped.push(SkillData.basicAttack);
 
 Game.player = player;
-
 Game.battle = new Battle();
-
+Game.updateList.push(Game.battle);
+Game.start();
 module.exports = Game;
