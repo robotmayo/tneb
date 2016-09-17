@@ -16,12 +16,12 @@ export default class Dungeon extends React.Component{
   startDungeon(){
     Game.battle.start(Game.player, EnemyFactory.create('testSlime') );
     this.setState({battle : Game.battle});
+    Game.updateList.push({ update : () => this.setState({battle : Game.battle})});
   }
 
   useSkill(skillName){
     const action = this.state.battle.player.useSkill(skillName, this.state.battle.target);
     this.state.battle.addAction(action);
-    this.setState({battle : Game.battle});
   }
 
   render(){
