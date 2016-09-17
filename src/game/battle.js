@@ -29,7 +29,7 @@ class Battle{
           a._ran = true;
         }
         this.actionQueue.push(a);
-        const dead = endIfDead();
+        const dead = this.endIfDead();
         // Lets just stop processing if someone died
         if(dead) return;
       }

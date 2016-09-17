@@ -15,7 +15,7 @@ const game = {
     this.timers.last = now;
     this.timers.delta = (now - this.timers.last) / 1000;
     this.updateList.forEach(i => i.update(this));
-    this.timers.id = setTimeout(() =>  this.update(), (1000 * 20) / 60); // Update at 20 frames per second
+    this.timers.id = setTimeout(() =>  this.update(), 1000 / 20); // Update at 20 frames per second
   }
 
 };

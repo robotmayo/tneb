@@ -24,7 +24,7 @@ class Actor{
     if(!skill) throw new Error('Skill not found');
     const use = SkillScripts[skill.action];
     if(!use) throw new Error('Skill not found');
-    return use(skill.data, this, target);
+    return use(skill, this, target);
   }
 
 }

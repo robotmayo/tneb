@@ -19,8 +19,9 @@ export default class Dungeon extends React.Component{
   }
 
   useSkill(skillName){
-    const action = this.state.battle.player.useSkill(skillName, this.state.target);
+    const action = this.state.battle.player.useSkill(skillName, this.state.battle.target);
     this.state.battle.addAction(action);
+    this.setState({battle : Game.battle});
   }
 
   render(){

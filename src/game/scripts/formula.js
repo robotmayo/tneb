@@ -9,16 +9,14 @@ const DAMAGE_TYPES = require('../data/damage-types.json');
 
 /**
  * @typedef {Object} DamDescType
- * @property {string} type
+ * @property {string} type A damage type as defined in damage-types
  * @property {number} ratio
  */
 
 /**
  * Damage Description for use in formulas. Multiple types can be done at once
  * @typedef {Object} DamDesc
- * @property {Object[]} types
- * @property {string} types.type A damage type as defined in damage-types
- * @property {number} types.ratio
+ * @property {DamDescType[]} types
  * @property {Object} target
  * @property {Object} source
  * @property {number} raw
@@ -43,6 +41,7 @@ function wrapForCalc(type, value){
  * @returns {DamageData[]}
  */
 function calculateDamage(damageDesc){
+  console.log(damageDesc);
   return damageDesc.types.map(t => {
     switch (t.type) {
       case DAMAGE_TYPES.PHYSICAL:
